@@ -2,12 +2,7 @@
 ## of a matrix if it is already calculated. Else the inverse is computed
 ## and returned. It is then cached for future use
 
-## makeCacheMatrix creates a matrix that can cache the inverse. It creates
-## a list containing function to
-## * set the value of the matrix
-## * get the value of the matrix
-## * set the value of the inverse
-## * get the value of the inverse
+## makeCacheMatrix creates a "special" matrix that can cache the inverse
 
 makeCacheMatrix <- function(x = matrix()) {
   inverse <- NULL
@@ -22,7 +17,9 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
+## This function computes inverse of "special" matrix returned by
+## makeCacheMatrix function. If inverse already exists, this function
+## will retrieve the inverse from cache
 
 cacheSolve <- function(x, ...) {
   inverse <- x$getinv()
